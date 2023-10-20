@@ -1,0 +1,168 @@
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+/* Xóa gạch chân mặc định của thẻ a */
+a{
+    text-decoration: none;
+}
+
+/* Xóa đặc tính của float để thẻ div cha có thể ôm hết các div con trong nó */
+.clear-float{
+    clear: both;
+}
+
+/* Xây dựng bố cục cho mục header, chia header thành 3 phần */
+.header{
+    padding: 0 72px;
+    display: flex;
+    height: 160px;
+    background-image: linear-gradient(90deg, #ADA996, #F2F2F2, #DBDBDB, #EAEAEA);
+}
+
+/* Xây dựng  header-logo */
+.header-logo{
+    width: 250px;
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
+.header-logo .logo{
+    width: 100%;
+}
+
+/* Xây dựng header-name */
+.header-name{
+    text-align: center;
+    padding: 32px 20px;
+    width: 650px;
+    line-height: 30px;
+}
+
+.header-name .header-tv{
+    font-size: 28px;
+    font-weight: 550;
+    color: red;
+}
+
+.header-name .header-ta{
+    font-size: 24px;
+    color: blue;
+    letter-spacing: 0.5px;
+    text-shadow: 0.1px 0.1px 2px gray;
+}
+
+.header-name .header-gr,
+.header-name .header-topic{
+    font-size: 20px;
+}
+
+.header-name .header-topic{
+    text-decoration: underline;
+}
+
+/* Xây dựng header-options */
+.header-options{
+    width: 150px;
+    padding-top: 32px;
+    padding-left: 30px;
+}
+
+.header-options .help-line{
+    font-size: 20px;
+    color: blue;
+}
+
+/* Tạo hiệu ứng khi di chuột vào nút Trợ giúp */
+.header-options .help-line:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+    color: red;
+}
+
+/* Xây dựng thanh điều hướng */
+.nav-bar{
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(90deg, #ADA996, #F2F2F2, #DBDBDB, #EAEAEA);
+    border-bottom: 3px solid red;
+    font-size: 20px;
+}
+
+/* Kéo nd trong thanh điều hướng thành 1 hàng bằng inline-block */
+.nav li{
+    display: inline-block;
+    padding: 16px 8px;
+}
+
+.nav li a{
+    color: black;
+}
+
+.nav li:hover{
+    background-color: white;
+    color: red;
+}
+
+/* tạo hiệu ứng khi trỏ chuột vào các mục*/
+.nav li a:hover{
+    opacity: 0.9;
+    text-decoration: underline;
+    color: rgb(209, 34, 34);
+    transition: 0.3s ease;
+}
+
+.nav .chosen{
+    background-color: white;
+}
+
+.nav .chosen a{
+    opacity: 0.9;
+    color: rgb(209, 34, 34);
+}
+
+/* Xây dựng phần nd chỉ bằng 1 bức ảnh */
+.contentx .contentx-pic{
+    width: 1349px;
+    opacity: 0.8;
+    display: block;
+}
+
+/* xây dựng footer */
+.footer{
+    text-align: center;
+    line-height: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-image: linear-gradient(-45deg, #ADA996, #F2F2F2, #DBDBDB, #EAEAEA);
+}
+
+/* chỉnh name-copyright */
+.footer .name-copyright{
+    line-height: 64px;
+    font-weight: bold;
+    font-size: 28px;
+    font-family: monospace;
+}
+
+/* chỉnh icon */
+.footer .icon-footer{
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+/* chỉnh tên bản quyền tác giả */
+.footer .author{
+    font-size: 20px;
+    letter-spacing: 0px;
+}
+
+.author a:hover{
+    text-decoration: underline;
+    opacity: 0.7;
+    color: red;
+}
