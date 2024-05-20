@@ -10,9 +10,9 @@ import pickle
 import nltk
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-data = pd.read_excel('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\data\\DATACHATBOT.xlsx')
+data = pd.read_excel('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\data\\DATACHATBOT.xlsx')
 X= data["question"]
 Y= data["answer"]
 #print("thuoc tinh dieu kien")
@@ -58,8 +58,8 @@ for i in range(0,X.count()):
   for j in X[i].split():
     tokens.append(j)
 
-#freq = nltk.FreqDist(tokens)
-#freq.plot(20, cumulative=False)
+# freq = nltk.FreqDist(tokens)
+# freq.plot(20, cumulative=False)
 
 #nhu vay chung ta biet mot so tu xuat hien xuat hien thuong xuyen va no se anh huong toi mo hinh can du doan
 #chung ta se loai bo chung de cho model co do chinh xac cao hon
@@ -103,18 +103,27 @@ Y_test1=np.asarray(Y_test)
 
 clf= MultinomialNB()
 #scores = cross_val_score(clf, X_train1, Y_train1, cv=5)
-#print("%0.2f  accuracy with a standard deviation of %0.2f" % (scores.mean()*100, scores.std()))
+# print("%0.2f  accuracy with a standard deviation of %0.2f" % (scores.mean()*100, scores.std()))
 
 clf.fit(X_train1,Y_train1)
 
 #kiem tra voi du lieu testing xem do chinh xac cua no la bao nhieu
 prediction = clf.predict(X_test1)
-#print("Độ chính xác so với dữ liệu dự đoán và dữ liệu test là: ")
-#print(accuracy_score(Y_test1, prediction))
+print("Độ chính xác so với dữ liệu dự đoán và dữ liệu test là: ")
+accuracy = accuracy_score(Y_test1, prediction)
+precision = precision_score(Y_test1, prediction, average='weighted')
+recall = recall_score(Y_test1, prediction, average='weighted')
+f1 = f1_score(Y_test1, prediction, average='weighted')
+
+print(f'Accuracy: {accuracy:.2f}')
+print(f'Precision: {precision:.2f}')
+print(f'Recall: {recall:.2f}')
+print(f'F1 Score: {f1:.2f}')
+
 
 #bay h se luu file tu vung lai de dung cho sau nay
 
-pickle.dump(vectorizer.vocabulary_, open('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\colab\\vocab.pkl', 'wb')) #luu lai
-pickle.dump(clf, open('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\colab\\NB_ChatBot_model.pkl', 'wb')) #luu model lai
+pickle.dump(vectorizer.vocabulary_, open('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\colab\\vocab.pkl', 'wb')) #luu lai
+pickle.dump(clf, open('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\colab\\NB_ChatBot_model.pkl', 'wb')) #luu model lai
 #luu cach ma hoa cua nhan lai
-pickle.dump(le, open('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\colab\\decode_label.pkl', 'wb'))
+pickle.dump(le, open('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\colab\\decode_label.pkl', 'wb'))

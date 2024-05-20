@@ -5,9 +5,11 @@ import pickle
 from flask import Flask, render_template, request
 
 #giai nen cac doi tuong
-clf = pickle.load(open('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\colab\\NB_ChatBot_model.pkl', 'rb'))
-vocabulary_to_load = pickle.load(open('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\colab\\vocab.pkl', 'rb'))
-le = pickle.load(open('C:\\Users\\CAO DUC\\Desktop\\HealthCare_Chatbot\\colab\\decode_label.pkl', 'rb'))
+
+
+clf = pickle.load(open('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\colab\\NB_ChatBot_model.pkl', 'rb'))
+vocabulary_to_load = pickle.load(open('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\colab\\vocab.pkl', 'rb'))
+le = pickle.load(open('E:\\Data of TuTran\\A06- Kỳ 2 năm 3\\Nhập môn AI\\BTL TTNT\\HealthCare-Chatbot\\colab\\decode_label.pkl', 'rb'))
 
 app = Flask(__name__) #khoi tao flask
 
